@@ -8,4 +8,18 @@
     <div>
     <p>{{ blogpost.content }}</p>
     </div>
+    <br/>
+    <h4>Comments</h4>
+    {% if blogpost.comment_set.all %}
+      {% for comment in blogpost.comment_set.all %}
+        <hr/>
+        <div>
+          <p><strong>{{ comment.commenter }}:</strong> {{ comment.comment_datetime }}</p>
+          <p>{{ comment.content }}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>There are no comments</p>
+    {% endif %}
+	<p><a href="{% url 'add_comment' blogpost.id %}">Add Comment</a></p>
 {% endblock %}

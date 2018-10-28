@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <p><strong>Post your comment for:</strong>{{ blogpost.title }}</p>
+  <form action="http://localhost:8000{% url 'create_comment' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+	<input type="text" name="blogpost_id"  value="{{ blogpost.id }}" hidden="block"/>
+	<br/>
+	<div>
+	  <strong>Comment:</strong>
+	  <textarea name="content" cols="100" rows="10"></textarea>
+	</div>
+	<br/>
+	<p>
+	<input type="submit" value="Save Comment"/>
+	</p>
+  </form>
+{% endblock %}
