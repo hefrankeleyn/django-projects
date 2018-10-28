@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>First Name: {{ blogger.first_name }}</h1>
+    <h1>Last Name: {{ blogger.last_name }}</h1>
+    <p><strong>Sex:</strong> {{ blogger.sex }}</p>
+    <p><strong>Age:</strong> {{ blogger.age }}</p>
+    <p><strong>Profession:</strong> {{ blogger.profession }}</p>
+    {% if blogger.blogpost_set.all %}
+    <div style="margin-left:20px;margin-top:20px">
+        <h4>my blogposts</h4>
+        {% for blogpost in blogger.blogpost_set.all %}
+          <p><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a> ({{ blogpost.postDate }})</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

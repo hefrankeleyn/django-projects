@@ -43,7 +43,7 @@ class Blogger(models.Model):
         return f'{self.first_name},{self.last_name}'
     
     def get_absolute_url(self):
-        return reverse('blogger-detail',args[str(self.id)])
+        return reverse('blogger-detail',args=[str(self.id)])
 
 class Comment(models.Model):
     commenter = models.ForeignKey('Blogger',models.SET_NULL,null=True,blank=True)

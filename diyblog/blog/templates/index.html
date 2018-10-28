@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Blog Home Page.</h1>
+    <p>Welcome to Blob Home Page.</p>
+    <h2>Overview</h2>
+    <p>The blog has the following record counts:</p>
+    <ul>
+        <li><strong>BlogPosts:</strong>{{ num_blogPost }}</li>
+        <li><strong>Blogger:</strong>{{ num_blogger }}</li>
+    </ul>
+{% endblock %}

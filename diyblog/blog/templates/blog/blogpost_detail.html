@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Title:{{ blogpost.title }}</h1>
+    <p><strong>Blogger:</strong><a href="{{ blogpost.blogger.get_absolute_url }}">{{ blogpost.blogger }}</a></P>
+    <p><strong>PostDate:</strong>{{ blogpost.postDate }}</P>
+    <h2>content:</h2>
+    <div>
+    <p>{{ blogpost.content }}</p>
+    </div>
+{% endblock %}
